@@ -1,0 +1,57 @@
+<?php if ($block->getModuleActivation()): ?>
+<?php
+// * HTML vars
+// main banner
+$cookienotificationbannerBlockStyle = $block->getBlockStyle();
+$cookieMessage = $block->getCookieMessage();
+// btn more
+$btnMoreStyle = $block->getBtnMoreStyle();
+$btnMoreTextStyle = $block->getBtnMoreTextStyle();
+$btnMoreText = $block->getCookieMoreButtonText();
+// btn allow
+$btnAllowStyle = $block->getBtnAllowStyle();
+$btnAllowTextStyle = $block->getBtnAllowTextStyle();
+$btnAllowText = $block->getCookieAllowButtonText();
+// * Identifiers & Selectors
+$cookieBlockSelector = '#' . $cookieBlockIdentifier = 'cookienotificationbanner-block';
+$cookieAllowButtonSelector = '#' . $cookieAllowButtonIdentifier = 'btn-cookienotificationbanner-allow';
+$cookieMoreButtonSelector = '#' . $cookieMoreButtonIdentifier = 'btn-cookienotificationbanner-more';
+// * JS vars
+$cookieName = $block->getCookieName();
+$cookieValue = $this->helper('Magento\Cookie\Helper\Cookie')->getAcceptedSaveCookiesWebsiteIds();
+$cookieLifetime = $block->getCookieLifetime();
+$cookiePath = $block->getCookiePath();
+$cookieDomain = $block->getCookieDomain();
+$cookieMoreLink = $block->getCookieMoreButtonLink();
+$cookieMoreLinkDestination = $block->getCookieMoreButtonLinkDestination();
+?>
+    <div id="<?=$cookieBlockIdentifier?>" style="<?=$cookienotificationbannerBlockStyle?>">
+        <p><?=$cookieMessage?></p>
+        <button id="btn-cookienotificationbanner-more" style="<?=$btnMoreStyle?>" >
+            <span style="<?=$btnMoreTextStyle?>"><?=$btnMoreText?></span>
+        </button>
+        <button id="<?=$cookieAllowButtonIdentifier?>" style="<?=$btnAllowStyle?>">
+            <span style="<?=$btnAllowTextStyle?>"><?=$btnAllowText?></span>
+        </button>
+    </div>
+
+    <script type="text/x-magento-init">
+        {
+            "<?=$cookieBlockSelector?>": {
+                "cookieNotification": {
+                    "cookieBlockSelector": "<?=$cookieBlockSelector?>",
+                    "cookieAllowButtonSelector": "<?=$cookieAllowButtonSelector?>",
+                    "cookieName": "<?=$cookieName?>",
+                    "cookieValue": <?=$cookieValue?>,
+                    "cookieLifetime": <?=$cookieLifetime?>,
+                    "cookiePath": "<?=$cookiePath?>",
+                    "cookieDomain": "<?=$cookieDomain?>",
+                    "cookieMoreButtonSelector": "<?=$cookieMoreButtonSelector?>",
+                    "cookieMoreLink": "<?=$cookieMoreLink?>",
+                    "cookieMoreLinkDestination": <?=$cookieMoreLinkDestination?>
+                }
+            }
+        }
+    </script>
+
+<?php endif; ?>

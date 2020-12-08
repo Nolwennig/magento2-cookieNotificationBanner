@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="cookienotificationbanner" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Bandeau "acceptation des cookies"</label>
+            <tab>customer</tab>
+            <resource>Nolwennig_CookieNotificationBanner::config_cookienotificationbanner</resource>
+            <group id="functional" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Fonctionnement</label>
+                <field id="activation" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Activer le module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Active / Désactive le module</comment>
+                </field>
+                <field id="lifetime" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Durée de vie du cookie</label>
+                    <validate>validate-number</validate>
+                    <comment><![CDATA[https://www.cnil.fr/fr/exemple-de-bandeau-cookie : La durée de validité de ce consentement est de 13 mois maximum, soit 34128000 secondes]]></comment>
+                </field>
+                <field id="path" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Chemin du cookie (path)</label>
+                </field>
+                <field id="domain" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Domaine du cookie</label>
+                </field>
+            </group>
+            <group id="design" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Design</label>
+                <field id="position" translate="label comment" type="radios" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Position du bandeau</label>
+                    <source_model>Nolwennig\CookieNotificationBanner\Model\Config\Backend\Position</source_model>
+                    <comment>Emplacement du bandeau</comment>
+                </field>
+                <field id="message" translate="label" type="textarea" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Message</label>
+                </field>
+                <field id="message_text_color" translate="label comment" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Couleur du texte</label>
+                    <validate>validate-hexadecimal-color-length validate-alphanum</validate>
+                    <comment>Valeur héxadecimal (code couleur html sans le #), ex. FFFFFF</comment>
+                </field>
+                <field id="message_background_color" translate="label comment" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Couleur d'arrière-plan du texte</label>
+                    <validate>validate-hexadecimal-color-length validate-alphanum</validate>
+                    <comment>Valeur héxadecimal (code couleur html sans le #), ex. 000000</comment>
+                </field>
+                <field id="btn_more_text" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Texte du bouton "en savoir +"</label>
+                </field>
+                <field id="btn_more_text_color" translate="label comment" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Couleur du bouton du texte "en savoir +"</label>
+                    <validate>validate-hexadecimal-color-length validate-alphanum</validate>
+                    <comment>Valeur héxadecimal (code couleur html sans le #), ex. FFFFFF</comment>
+                </field>
+                <field id="btn_more_background_color" translate="label comment" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Couleur d'arrière-plan du bouton "en savoir +"</label>
+                    <validate>validate-hexadecimal-color-length validate-alphanum</validate>
+                    <comment>Valeur héxadecimal (code couleur html sans le #), ex. 000000</comment>
+                </field>
+                <field id="btn_more_link" translate="label comment" type="select" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Page CMS "en savoir +"</label>
+                    <source_model>Nolwennig\CookieNotificationBanner\Model\Config\Backend\CMSPageList</source_model>
+                    <comment>Choisir la page CMS correspondante</comment>
+                </field>
+                <field id="btn_more_link_destination" translate="label comment" type="select" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Destination du lien "en savoir +"</label>
+                    <source_model>Nolwennig\CookieNotificationBanner\Model\Config\Backend\LinkDestination</source_model>
+                    <validate>validate-select</validate>
+                    <comment><![CDATA[<strong>Nouvelle fenêtre</strong>: Ouvre une nouvelle fenêtre pour afficher la page "en savoir +"]]>
+                    </comment>
+                </field>
+                <field id="btn_allow_text" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Texte du bouton d'acceptation des cookies</label>
+                </field>
+                <field id="btn_allow_text_color" translate="label comment" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Couleur du texte du bouton d'acceptation des cookies</label>
+                    <validate>validate-hexadecimal-color-length validate-alphanum</validate>
+                    <comment>Valeur héxadecimal (code couleur html sans le #), ex. FFFFFF</comment>
+                </field>
+                <field id="btn_allow_background_color" translate="label comment" type="text" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Couleur d'arrière-plan du bouton d'acceptation des cookies</label>
+                    <validate>validate-hexadecimal-color-length validate-alphanum</validate>
+                    <comment>Valeur héxadecimal (code couleur html sans le #), ex. 000000</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

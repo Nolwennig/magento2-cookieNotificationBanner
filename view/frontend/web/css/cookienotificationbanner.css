@@ -1,0 +1,32 @@
+
+#cookienotificationbanner-block {
+    position: fixed;
+    left: 0;
+    right: 0;
+    padding: 10px 20px;
+    display: block;
+    line-height: 1.2em;
+    font-size: 14px;
+    margin: 0;
+}
+
+#cookienotificationbanner-block > p {
+    float: left;
+    margin-right: 10px;
+}
+
+button#btn-cookienotificationbanner-more {
+    cursor: pointer;
+    padding: 5px;
+    font-size: 14px;
+    border: solid black 1px;
+    float: left;
+    margin-right: 10px;
+}
+
+button#btn-cookienotificationbanner-allow {
+    cursor: pointer;
+    padding: 5px;
+    font-size: 14px;
+    border: solid black 1px;
+}
